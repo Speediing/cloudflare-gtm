@@ -37,7 +37,7 @@ const gmail = { id: "gmail", host: "mail.google.com", label: "Gmail" };
 const gong = { id: "gong", host: "app.gong.io", label: "Gong" };
 const sfdc = {
   id: "sfdc",
-  host: "datadog.lightning.force.com",
+  host: "cloudflare.lightning.force.com",
   label: "Salesforce",
 };
 const sheets = {
@@ -59,24 +59,24 @@ export const SCREENS: Record<JobId, Record<string, ComputerBeat>> = {
     m1: {
       pill: "Opening Granola",
       host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
+      path: "/notes/acme-cloudflare",
+      title: "Acme <> Cloudflare",
       site: "granola",
       tabs: [granola, figma, gmail],
     },
     m2: {
       pill: "In Granola",
       host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
+      path: "/notes/acme-cloudflare",
+      title: "Acme <> Cloudflare",
       site: "granola",
       tabs: [granola, figma, gmail],
     },
     m3: {
       pill: "Pulling Granola, still on the call",
       host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
+      path: "/notes/acme-cloudflare",
+      title: "Acme <> Cloudflare",
       site: "clip",
       clip: "03-slides-granola",
       tabs: [granola, figma, gmail],
@@ -169,8 +169,8 @@ export const SCREENS: Record<JobId, Record<string, ComputerBeat>> = {
     m1: {
       pill: "Researching the account",
       host: "acme.com",
-      path: "/careers/staff-sre",
-      title: "Staff SRE · Observability",
+      path: "/careers/staff-platform",
+      title: "Staff platform · Edge",
       site: "research",
       tabs: [web, gdoc, linkedin, gmail],
     },
@@ -217,8 +217,8 @@ export const SCREENS: Record<JobId, Record<string, ComputerBeat>> = {
     },
     m7: {
       pill: "Building a page for this account",
-      host: "acme.datadoghq.dev",
-      path: "/acme-sev2",
+      host: "acme.workers.dev",
+      path: "/acme-origin",
       title: "For Acme platform",
       site: "page",
       tabs: [web, gdoc, linkedin, gmail],

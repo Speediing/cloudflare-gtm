@@ -33,13 +33,13 @@ function OutboundPack({
           <article className="out-email-card">
             <p className="out-email-label">Draft email · 1 of 10</p>
             <p className="out-email-subject">
-              Subject · {artifact.account}&apos;s last Sev-2
+              Subject · {artifact.account}&apos;s last origin outage
             </p>
             <div className="out-email-copy">
               <p>Hi {firstName},</p>
               <p>
-                Your status page and open Staff SRE role point to the same
-                thing: on-call still stitches APM and logs to name a Sev-2.
+                Your status page and open Staff platform role point to the same
+                thing: on-call still stitches CDN and WAF to fail over origin.
               </p>
               <p>
                 I put together the 90-second version for your platform team.
@@ -156,10 +156,10 @@ function BetterAnswer({
           <p className="leave-kicker">Say this</p>
           <p className="leave-win">{artifact.betterAnswer}</p>
           <p className="leave-incident" aria-hidden>
-            <span>Prometheus</span>
-            <span>Grafana</span>
-            <span>Log pile</span>
-            <b>APM + Logs</b>
+            <span>CDN ticket</span>
+            <span>WAF console</span>
+            <span>Origin runbook</span>
+            <b>CDN + WAF</b>
           </p>
         </section>
       </div>

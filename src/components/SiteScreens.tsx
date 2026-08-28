@@ -125,7 +125,7 @@ export function SiteScreen({
   }
 }
 
-function GranolaScreen({ account }: { account: string }) {
+function GranolaScreen({ account: _account }: { account: string }) {
   return (
     <div className="site site-granola">
       <header>
@@ -135,7 +135,7 @@ function GranolaScreen({ account }: { account: string }) {
       <p className="site-time">Still on the call · Granola in</p>
       <ul>
         <li>
-          <span>14:12</span> Start with APM + Logs in one team. Not a product
+          <span>14:12</span> Start with CDN + WAF in one team. Not a product
           tour.
         </li>
         <li>
@@ -143,17 +143,17 @@ function GranolaScreen({ account }: { account: string }) {
           products.
         </li>
         <li>
-          <span>14:21</span> Soft yes on a Bits AI trial if those two are named.
+          <span>14:21</span> Soft yes on a Workers trial if those two are named.
         </li>
         <li>
-          <span>14:24</span> Cost mentioned once. RUM not in the room.
+          <span>14:24</span> Cost mentioned once. Images not in the room.
         </li>
         <li>
           <span>14:28</span> Your contact will take a Tuesday with a security
           co-owner.
         </li>
         <li>
-          <span>14:31</span> Use cases named live on the demo. Sev-2 story,
+          <span>14:31</span> Use cases named live on the demo. Origin outage,
           one team, SSO as the gate.
         </li>
       </ul>
@@ -227,7 +227,7 @@ function GongScreen({ account }: { account: string }) {
       <div className="gong-recap">
         <h4>Call recap</h4>
         <ul>
-          <li>They have APM + Logs</li>
+          <li>They have CDN + WAF</li>
           <li>Security lead in the room</li>
           <li>Cost mentioned once</li>
           <li>No one who can sign was on the call</li>
@@ -252,7 +252,7 @@ function SfdcAccountScreen({ account }: { account: string }) {
       <dl className="sfdc-fields">
         <div>
           <dt>Has now</dt>
-          <dd>APM + Logs</dd>
+          <dd>CDN + WAF</dd>
         </div>
         <div>
           <dt>Security lead</dt>
@@ -278,12 +278,12 @@ function SfdcAccountScreen({ account }: { account: string }) {
         </thead>
         <tbody>
           <tr>
-            <td>Bits AI</td>
+            <td>Workers</td>
             <td>Platform eng manager</td>
             <td>Day 15 to 45</td>
           </tr>
           <tr>
-            <td>Cloud SIEM</td>
+            <td>Zero Trust</td>
             <td>Security lead</td>
             <td>Day 15 to 45</td>
           </tr>
@@ -293,7 +293,7 @@ function SfdcAccountScreen({ account }: { account: string }) {
             <td>Day 45 to 90</td>
           </tr>
           <tr>
-            <td>RUM</td>
+            <td>Images</td>
             <td>Frontend guild</td>
             <td>Day 45 to 90</td>
           </tr>
@@ -341,7 +341,7 @@ function SfdcOppScreen({
           <dd>Likes us · weak map</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
-          <dt>Cloud SIEM</dt>
+          <dt>Zero Trust</dt>
           <dd>Not in the story</dd>
         </div>
       </dl>
@@ -360,11 +360,11 @@ function SheetsScreen({
   const rows = table
     ? table.rows
     : [
-        [account, "Inside contact", "Signer TBD", "APM + Logs", "Tue SIEM"],
-        ["Globex", "VP Eng", "CISO", "APM + Logs", "First meeting"],
-        ["Initech", "SRE lead", "CTO", "APM + Logs", "Bits AI"],
-        ["Umbrella", "Sec eng", "CISO", "APM + Logs", "Open source drill"],
-        ["Hooli", "Platform", "Signer TBD", "APM + Logs", "Cost later"],
+        [account, "Inside contact", "Signer TBD", "CDN + WAF", "Tue Zero Trust"],
+        ["Globex", "VP Eng", "CISO", "CDN + WAF", "First meeting"],
+        ["Initech", "Platform lead", "CTO", "CDN + WAF", "Workers"],
+        ["Umbrella", "Sec eng", "CISO", "CDN + WAF", "Open source drill"],
+        ["Hooli", "Platform", "Signer TBD", "CDN + WAF", "Cost later"],
       ];
   const cols = table
     ? table.columns
@@ -421,7 +421,7 @@ function GmailScreen({
       </p>
       <p>
         <span>Subject</span>
-        {artifact?.subject || `${account} / Datadog`}
+        {artifact?.subject || `${account} / Cloudflare`}
       </p>
       <div>{artifact?.body || "Draft parked here until you tap Send?"}</div>
     </div>
@@ -472,7 +472,7 @@ function GdocScreen({
           {forecast
             ? `${account} forecast`
             : talks
-              ? "Bits AI talk tracks"
+              ? "Workers talk tracks"
               : packet
                 ? packet.title
                 : onePager?.title || `${account} brief`}
@@ -520,11 +520,11 @@ function ResearchScreen({ account }: { account: string }) {
       <p className="site-time">Researching the account · not a sequence</p>
       <ul>
         <li>
-          <span>Status</span> Sev-2, 14 days ago. 47 minutes to name the failing
-          service. Postmortem still says they jumped three tools.
+          <span>Status</span> Origin outage, 14 days ago. 47 minutes to fail
+          over. Postmortem still says they jumped three tools.
         </li>
         <li>
-          <span>Careers</span> Staff SRE JD: experience stitching APM and logs
+          <span>Careers</span> Staff platform JD: experience running CDN and WAF
           across teams. Posted this month.
         </li>
         <li>

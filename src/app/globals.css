@@ -6,8 +6,8 @@
   --paper: #f5f1e8;
   --surface: #fbf9f4;
   --line: #d8d3c8;
-  --accent: #632ca6;
-  --accent-dark: #4c1d82;
+  --accent: #f6821f;
+  --accent-dark: #c45d12;
   --sage: #788274;
   --blue: #5e7180;
   --bg: var(--paper);
@@ -315,16 +315,16 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup {
-  --dd-h: 36px;
+  --lockup-h: 16px;
   display: inline-flex;
-  align-items: flex-start;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.28rem;
   min-width: 0;
   color: var(--ink);
   text-decoration: none;
 }
 
-.brand-dd,
+.brand-wordmark,
 .brand-sxai {
   display: block;
   width: auto;
@@ -334,14 +334,14 @@ button:active:not(:focus-visible),
   object-fit: contain;
 }
 
-.brand-dd {
-  height: var(--dd-h);
+.brand-wordmark {
+  height: var(--lockup-h);
 }
 
 .brand-sxai {
-  height: calc(var(--dd-h) * 0.58);
-  max-width: calc(var(--dd-h) * 4.8);
-  margin-top: calc(var(--dd-h) * 0.2);
+  height: calc(var(--lockup-h) * 0.58);
+  max-width: calc(var(--lockup-h) * 4.8);
+  margin-top: 0;
   filter: brightness(0);
 }
 
@@ -350,19 +350,19 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup-sm {
-  --dd-h: 24px;
+  --lockup-h: 16px;
 }
 
 .brand-lockup-md,
 .brand-lockup-lg {
-  --dd-h: 32px;
+  --lockup-h: 18px;
 }
 
 .brand-times {
   align-self: center;
   margin-top: 0;
   color: var(--muted);
-  font-size: calc(var(--dd-h) * 0.28);
+  font-size: calc(var(--lockup-h) * 0.55);
   font-weight: 300;
   line-height: 1;
 }
@@ -909,7 +909,7 @@ button:active:not(:focus-visible),
 
 .story-transcript-ui {
   background:
-    linear-gradient(155deg, rgba(99, 44, 166, 0.08), transparent 55%),
+    linear-gradient(155deg, rgba(246, 130, 31, 0.08), transparent 55%),
     var(--surface);
 }
 
@@ -975,12 +975,12 @@ button:active:not(:focus-visible),
   border-radius: 0.38rem;
   color: #fff;
   background:
-    radial-gradient(circle at 90% 12%, rgba(99, 44, 166, 0.8), transparent 34%),
+    radial-gradient(circle at 90% 12%, rgba(246, 130, 31, 0.8), transparent 34%),
     #29242f;
 }
 
 .story-mini-slide small {
-  color: #c6a7ea;
+  color: #f5c49a;
   font-family: var(--mono);
   font-size: 0.45rem;
   font-weight: 700;
@@ -1002,7 +1002,7 @@ button:active:not(:focus-visible),
   padding: 0.19rem 0.34rem;
   border-radius: 0.2rem;
   color: #1b1820;
-  background: #d9b8ff;
+  background: #ffd4a8;
   font-size: 0.48rem;
   font-weight: 700;
 }
@@ -1013,7 +1013,7 @@ button:active:not(:focus-visible),
 
 .story-email-ui {
   background:
-    linear-gradient(145deg, rgba(99, 44, 166, 0.06), transparent 58%),
+    linear-gradient(145deg, rgba(246, 130, 31, 0.06), transparent 58%),
     var(--surface);
 }
 
@@ -1191,7 +1191,7 @@ button:active:not(:focus-visible),
 
 .story-research-ui {
   background:
-    radial-gradient(circle at 50% 60%, rgba(99, 44, 166, 0.11), transparent 48%),
+    radial-gradient(circle at 50% 60%, rgba(246, 130, 31, 0.11), transparent 48%),
     var(--surface);
 }
 
@@ -1312,7 +1312,7 @@ button:active:not(:focus-visible),
   place-items: center;
   border-radius: 50%;
   color: #1b1820;
-  background: #d9b8ff;
+  background: #ffd4a8;
   font-size: 0.5rem;
   font-weight: 800;
 }
@@ -4144,14 +4144,14 @@ button:active:not(:focus-visible),
 
 .org-bar {
   display: block;
-  width: calc(75% + 0.55rem);
+  width: calc(66% + 0.55rem);
   height: 1px;
   background: var(--line-strong);
 }
 
 .org-kids {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem;
   margin: 0;
   padding: 0;

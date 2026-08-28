@@ -5,14 +5,14 @@ export const ACME_TAIL_SLIDES: SlideCard[] = [
     n: 4,
     kicker: "They said · 4 min ago",
     voice: "them",
-    title: "The Sev-2",
-    body: "We cannot tell a Sev-2 story across APM and logs without stitching tools.",
+    title: "The origin outage",
+    body: "We cannot fail traffic over without jumping the CDN, the WAF, and a runbook.",
   },
   {
     n: 5,
     kicker: "Mapped live",
     voice: "us",
-    title: "Start with APM + Logs",
+    title: "Start with CDN + WAF",
     body: "Same team that already feels the outage. Start there this quarter.",
   },
   {
@@ -20,14 +20,14 @@ export const ACME_TAIL_SLIDES: SlideCard[] = [
     kicker: "They said · 4 min ago",
     voice: "them",
     title: "The security bar",
-    body: "Security will not let another agent in without SSO and an audit trail.",
+    body: "Security will not let another edge control plane in without SSO and an audit trail.",
   },
   {
     n: 7,
     kicker: "Mapped live",
     voice: "us",
-    title: "SSO, then Bits AI",
-    body: "Named on this call. One team. Bits AI after they see a faster fix.",
+    title: "SSO, then Workers",
+    body: "Named on this call. One team. Workers after they see a faster edge path.",
   },
 ];
 
@@ -61,7 +61,7 @@ export const ACME_PROCUREMENT: Extract<Artifact, { kind: "redlines" }> = {
   reply: {
     to: "Jordan Hale, Acme procurement",
     subject: "Acme invoices INV-0080 and INV-0081. Answers you can send today",
-    body: "Hi Jordan,\n\nINV-0081 ($427.51) is a one-time catch-up for usage 1–17 July that our billing system missed. Not new usage. Gap is closed. No further retros expected; I would flag any closed-period item before it billed.\n\nDashboard = usage. Billing invoices = what was billed. Those should now match. Send any line that does not.\n\nINV-0080 ($715.55) is two mid-cycle seat adds (19→21), not a full-year seat at $384. Renewal date does not change.\n\nTeam-wide spend cap is on Teams. Per-user caps and annual PO are Enterprise — that stays on the order form.\n\nHappy to jump on a call before these are processed.\n\nBest,",
+    body: "Hi Jordan,\n\nINV-0081 ($427.51) is a one-time catch-up for usage 1–17 July that our billing system missed. Not new usage. Gap is closed. No further retros expected; I would flag any closed-period item before it billed.\n\nDashboard = usage. Billing invoices = what was billed. Those should now match. Send any line that does not.\n\nINV-0080 ($715.55) is two mid-cycle seat adds (19→21), not a full-year seat at $384. Renewal date does not change.\n\nTeam-wide spend cap is on Teams. Per-user caps and annual PO are Enterprise. That stays on the order form.\n\nHappy to jump on a call before these are processed.\n\nBest,",
   },
 };
 
@@ -72,49 +72,49 @@ export const ACME_OUTBOUND: Extract<Artifact, { kind: "outbound" }> = {
   hypothesis: [
     {
       k: "Why us",
-      body: "On-call still stitches Prometheus, Grafana, and a log pile to name a Sev-2. APM + Logs is the start, not a catalog pitch.",
+      body: "On-call still stitches a CDN ticket, a WAF console, and origin failovers to ride out a bot flood. CDN + WAF is the start, not a catalog pitch.",
     },
     {
       k: "Why now",
-      body: "Public incident 14 days ago. 47 minutes to name the failing service. Staff SRE JD asks for stitching APM and logs. The pain is current.",
+      body: "Public incident 14 days ago. 47 minutes to fail over origin. Staff platform JD asks for CDN and WAF experience. The pain is current.",
     },
     {
       k: "Why them",
-      body: "VP Eng owns time-to-fix. Platform director lives in that stitch. They are the ones who felt the last Sev-2.",
+      body: "VP Eng owns time-to-recover. Platform director lives in that stitch. They are the ones who felt the last origin outage.",
     },
   ],
   evidence: [
     {
       source: "Status page · 14 days ago",
       finding:
-        "Sev-2, 47 minutes to name the failing service. Postmortem language is still 'we jumped three tools.'",
+        "Origin outage, 47 minutes to fail over. Postmortem language is still 'we jumped three tools.'",
     },
     {
-      source: "Careers · Staff SRE",
+      source: "Careers · Staff platform",
       finding:
-        "JD asks for 'experience stitching APM and logs across teams.' Open role, posted this month.",
+        "JD asks for 'experience running CDN and WAF across teams.' Open role, posted this month.",
     },
     {
       source: "Engineering blog",
       finding:
-        "We outgrew homegrown dashboards. No named replacement. That is the gap.",
+        "We outgrew homegrown edge rules. No named replacement. That is the gap.",
     },
   ],
   targets: [
     {
       name: "Priya Shah",
       role: "VP Engineering",
-      why: "Owns time-to-fix. Named in the SRE hiring chain.",
+      why: "Owns time-to-recover. Named in the platform hiring chain.",
     },
     {
       name: "Chris Okonkwo",
       role: "Director, Platform",
-      why: "Team is the one stitching APM and logs today.",
+      why: "Team is the one stitching CDN and WAF today.",
     },
   ],
   page: {
-    headline: "Acme's Sev-2 is a stitching problem",
-    body: "The last incident and the Staff SRE JD say the same thing. Start APM + Logs in the platform team. Bits AI after that team has a week-3 number. Not a product tour.",
+    headline: "Acme's origin outage is a stitching problem",
+    body: "The last incident and the Staff platform JD say the same thing. Start CDN + WAF in the platform team. Workers after that team has a week-3 number. Not a product tour.",
   },
 };
 
@@ -132,7 +132,7 @@ export const JOBS: CroJob[] = [
     storyboard: [
       {
         when: "Minute 8",
-        label: "The call starts. Grok is already listening — no prompt needed.",
+        label: "The call starts. Grok is already listening. No prompt needed.",
         scene: "call",
         visual: {
           kind: "live-call",
@@ -152,8 +152,8 @@ export const JOBS: CroJob[] = [
           kind: "live-transcript",
           timestamp: "14:31",
           speaker: "Priya",
-          quote: "We stitch APM and logs together every time there is a Sev-2.",
-          signals: ["Sev-2", "APM + Logs"],
+          quote: "We stitch the CDN and the WAF every time there is an origin outage.",
+          signals: ["Origin outage", "CDN + WAF"],
         },
       },
       {
@@ -163,8 +163,8 @@ export const JOBS: CroJob[] = [
         visual: {
           kind: "deck-update",
           eyebrow: "Their words",
-          headline: "A Sev-2 is a stitching problem",
-          product: "Start with APM + Logs",
+          headline: "An origin outage is a stitching problem",
+          product: "Start with CDN + WAF",
           status: "3 slides updated",
         },
       },
@@ -178,7 +178,7 @@ export const JOBS: CroJob[] = [
     unlock:
       "Hyper-personalized discovery on the slide, plus a tailored product next step, while they are still on.",
     outcome:
-      "One live call becomes a customer-specific deck — before the call ends.",
+      "One live call becomes a customer-specific deck, before the call ends.",
     clips: ["03-slides-granola"],
     demo: {
       title: "Room Ops",
@@ -211,22 +211,22 @@ export const JOBS: CroJob[] = [
           id: "m2",
           from: "room",
           kind: "text",
-          body: "Priya just named the Sev-2 and the security bar in her words. Mapping both to the last slides now while the call is still live.",
+          body: "Priya just named the origin outage and the security bar in her words. Mapping both to the last slides now while the call is still live.",
         },
         {
           id: "m3",
           from: "room",
           kind: "text",
-          body: "Still on. Granola 14:31. Their discovery is the slide. Sev-2 and the security bar in their words, then the product that fits this team. They should feel known, not pitched.",
+          body: "Still on. Granola 14:31. Their discovery is the slide. Origin outage and the security bar in their words, then the product that fits this team. They should feel known, not pitched.",
         },
         {
           id: "m4",
-          from: "slides",
+          from: "room",
           kind: "draft",
           draftLabel: "Last slides of the open deck · still on",
           artifact: {
             kind: "slides",
-            title: "What we heard",
+            title: "Their words",
             cards: ACME_TAIL_SLIDES,
           },
         },
@@ -242,7 +242,7 @@ export const JOBS: CroJob[] = [
             sections: [
               {
                 heading: "What we covered",
-                body: "Start with APM + Logs. Security needs SSO and an audit trail. Bits AI as a one-team trial, not a company-wide rollout.",
+                body: "Start with CDN + WAF. Security needs SSO and an audit trail. Workers as a one-team trial, not a company-wide rollout.",
               },
               {
                 heading: "Security path",
@@ -250,7 +250,7 @@ export const JOBS: CroJob[] = [
               },
               {
                 heading: "Trial",
-                body: "Bits AI in the same team that starts APM + Logs. Week-3 time-to-fix is the gate. Add seats only after that number.",
+                body: "Workers in the same team that starts CDN + WAF. Week-3 time-to-recover is the gate. Add scope only after that number.",
               },
               {
                 heading: "What we need from you",
@@ -271,22 +271,22 @@ export const JOBS: CroJob[] = [
               {
                 label: "Problem in their words",
                 value:
-                  "We cannot tell a Sev-2 story across APM and logs without stitching tools, and security will not let another agent in without SSO and an audit trail.",
+                  "We cannot fail traffic over without jumping the CDN, the WAF, and a runbook, and security will not let another edge control plane in without SSO and an audit trail.",
               },
               {
                 label: "Why now",
                 value:
-                  "The team already agreed to start APM + Logs. Bits AI is useful in that same week-3 window, not after a product tour next quarter.",
+                  "The team already agreed to start CDN + WAF. Workers is useful in that same week-3 window, not after a product tour next quarter.",
               },
               {
                 label: "Risks already named",
                 value:
-                  "SSO + audit trail. Legal may slow the contract. Cost came up once and is not in this ask. RUM is not in the room.",
+                  "SSO + audit trail. Legal may slow the contract. Cost came up once and is not in this ask. Images is not in the room.",
               },
               {
                 label: "Exact ask for next Tuesday",
                 value:
-                  "30 minutes. Your contact + a security co-owner. Dated SSO path. Written Bits AI trial scope for one team.",
+                  "30 minutes. Your contact + a security co-owner. Dated SSO path. Written Workers trial scope for one team.",
               },
             ],
           },
@@ -300,8 +300,8 @@ export const JOBS: CroJob[] = [
             kind: "gmail",
             title: "Forward to your contact",
             to: "Acme contact",
-            subject: "Acme / Datadog. Tuesday packet (SSO, Bits AI trial)",
-            body: "Forwarding the internal note from today's room. Problem is in your words. Tuesday ask is your contact + a security co-owner, a dated SSO path, and a one-team Bits AI trial. Nothing else is in the ask.",
+            subject: "Acme / Cloudflare. Tuesday packet (SSO, Workers trial)",
+            body: "Forwarding the internal note from today's room. Problem is in your words. Tuesday ask is your contact + a security co-owner, a dated SSO path, and a one-team Workers trial. Nothing else is in the ask.",
           },
         },
         {
@@ -364,7 +364,7 @@ export const JOBS: CroJob[] = [
     unlock:
       "Invoice questions in. A sendable draft out. No week of internal delay.",
     outcome:
-      "Grok finds the product and internal context, then drafts the answer — no Slack chase and no seller time wasted.",
+      "Grok finds the product and internal context, then drafts the answer. No Slack chase and no seller time wasted.",
     clips: ["01-morning-inbox"],
     demo: {
       title: "Paper",
@@ -440,7 +440,7 @@ export const JOBS: CroJob[] = [
           kind: "account-research",
           account: "Acme",
           sources: ["Status page", "Careers", "Engineering"],
-          signal: "47-minute Sev-2",
+          signal: "47-minute origin outage",
         },
       },
       {
@@ -450,9 +450,9 @@ export const JOBS: CroJob[] = [
         visual: {
           kind: "three-why",
           items: [
-            { label: "Why us", answer: "APM + Logs" },
-            { label: "Why now", answer: "Sev-2 · 14d ago" },
-            { label: "Why them", answer: "Own time-to-fix" },
+            { label: "Why us", answer: "CDN + WAF" },
+            { label: "Why now", answer: "Origin · 14d ago" },
+            { label: "Why them", answer: "Own time-to-recover" },
           ],
         },
       },
@@ -469,7 +469,7 @@ export const JOBS: CroJob[] = [
       },
       {
         when: "Ready for your click",
-        label: "Research, message, and account page — all built from their business.",
+        label: "Research, message, and account page, all built from their business.",
         scene: "send",
         artifact: ACME_OUTBOUND,
       },
@@ -503,7 +503,7 @@ export const JOBS: CroJob[] = [
           id: "m2",
           from: "attach",
           kind: "text",
-          body: "In the account. Careers, status page, engineering blog. Staff SRE JD is asking for stitching APM and logs. Status page still has a 47-minute Sev-2. Writing the 3-why from that, not from a persona.",
+          body: "In the account. Careers, status page, engineering blog. Staff platform JD is asking for CDN and WAF. Status page still has a 47-minute origin outage. Writing the 3-why from that, not from a persona.",
         },
         {
           id: "m3",
@@ -549,7 +549,7 @@ export const JOBS: CroJob[] = [
             title: "LinkedIn to Priya Shah",
             to: "Priya Shah",
             role: "VP Engineering, Acme",
-            body: "Priya — your status page from 14 days ago and the Staff SRE JD say the same thing: on-call still stitches tools to name a Sev-2. 90 seconds on how APM + Logs in the platform team would have named that incident. Draft only. Nothing sent.",
+            body: "Priya, your status page from 14 days ago and the Staff platform JD say the same thing: on-call still stitches tools to fail over origin. 90 seconds on how CDN + WAF in the platform team would have shortened that outage. Draft only. Nothing sent.",
           },
         },
         {
@@ -561,8 +561,8 @@ export const JOBS: CroJob[] = [
             kind: "gmail",
             title: "Email to Priya Shah",
             to: "Priya Shah, VP Engineering",
-            subject: "Acme's last Sev-2 and the Staff SRE JD",
-            body: "Priya — the 47-minute Sev-2 and the Staff SRE posting both point at stitching APM and logs. I put a one-page note on how Datadog would start in that platform team, not a product tour. Happy to walk Chris Okonkwo through it too. Nothing else in the ask. Draft only until you tap Send.",
+            subject: "Acme's last origin outage and the Staff platform JD",
+            body: "Priya, the 47-minute origin outage and the Staff platform posting both point at stitching CDN and WAF. I put a one-page note on how Cloudflare would start in that platform team, not a product tour. Happy to walk Chris Okonkwo through it too. Nothing else in the ask. Draft only until you tap Send.",
           },
         },
         {
@@ -585,7 +585,7 @@ export const JOBS: CroJob[] = [
                 heading: "Why this team",
                 body:
                   ACME_OUTBOUND.hypothesis.find((item) => item.k === "Why them")
-                    ?.body ?? "VP Eng owns time-to-fix.",
+                    ?.body ?? "VP Eng owns time-to-recover.",
               },
               {
                 heading: "How the product maps",
@@ -602,7 +602,7 @@ export const JOBS: CroJob[] = [
         },
       ],
     },
-  }
+  },
 ];
 
 export function getJob(id: string): CroJob | undefined {
