@@ -35,6 +35,12 @@ const BANNED = [
   { re: /\bAPM \+ Logs\b/, why: "Datadog product pair" },
   { re: /\bMadeline Ingleby\b/, why: "prior AE" },
   { re: /madeline\.ingleby/i, why: "prior AE email" },
+  { re: /What we heard/, why: "omit invented account-plan section" },
+  { re: /\bHeroBlock\b/, why: "first-pass invented site" },
+  { re: /Harbor Packet/, why: "first-pass invented site" },
+  { re: /brand-dd/, why: "prior Datadog lockup class" },
+  { re: /watercolor-pad\.webp/, why: "first-pass watercolor asset" },
+  { re: /\bmark:\s*["']AE["']/, why: "job title on the fleet seat" },
 ];
 
 function walk(dir, out = []) {
@@ -57,7 +63,12 @@ function walk(dir, out = []) {
 const hits = [];
 for (const file of walk(ROOT)) {
   const rel = relative(ROOT, file);
-  if (rel === "scripts/check-prior-customer.mjs") continue;
+  if (
+    rel === "scripts/check-prior-customer.mjs" ||
+    rel === "scripts/verify-served.mjs"
+  ) {
+    continue;
+  }
   const text = readFileSync(file, "utf8");
   const lines = text.split("\n");
   for (let i = 0; i < lines.length; i += 1) {

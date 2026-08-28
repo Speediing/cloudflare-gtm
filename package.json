@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "check": "node scripts/check-prior-customer.mjs"
+    "check": "node scripts/check-prior-customer.mjs",
+    "verify:site": "node scripts/verify-served.mjs"
   },
   "dependencies": {
     "geist": "^1.7.2",

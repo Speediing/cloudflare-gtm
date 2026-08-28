@@ -16,7 +16,7 @@ export const FLEET: FleetBot[] = [
     name: "Every sales rep",
     blurb: "The human stays in control. Their agents keep the surrounding work moving.",
     color: "#E8E8ED",
-    mark: "AE",
+    mark: "You",
     seat: true,
   },
   {
