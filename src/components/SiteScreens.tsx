@@ -268,7 +268,7 @@ function SfdcAccountScreen({ account }: { account: string }) {
         </div>
       </dl>
       <table className="sfdc-related">
-        <caption>Next 90 days</caption>
+        <caption>Future opportunities</caption>
         <thead>
           <tr>
             <th>Product</th>
@@ -280,22 +280,22 @@ function SfdcAccountScreen({ account }: { account: string }) {
           <tr>
             <td>Workers</td>
             <td>Platform eng manager</td>
-            <td>Day 15 to 45</td>
+            <td>After the first deployment</td>
           </tr>
           <tr>
             <td>Zero Trust</td>
             <td>Security lead</td>
-            <td>Day 15 to 45</td>
+            <td>After the security review</td>
           </tr>
           <tr>
             <td>Cost</td>
             <td>FinOps alias</td>
-            <td>Day 45 to 90</td>
+            <td>Before expansion</td>
           </tr>
           <tr>
             <td>Images</td>
             <td>Frontend guild</td>
-            <td>Day 45 to 90</td>
+            <td>When the frontend team is ready</td>
           </tr>
         </tbody>
       </table>
@@ -319,14 +319,12 @@ function SfdcOppScreen({
       </header>
       <div className="sfdc-title">
         <p>Opportunity</p>
-        <h3>
-          {account} · $1.4M
-        </h3>
+        <h3>{account}</h3>
       </div>
       <dl className="sfdc-fields">
         <div>
           <dt>Stage</dt>
-          <dd>4 · this quarter</dd>
+          <dd>In progress</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
           <dt>Signer meeting</dt>
@@ -375,7 +373,7 @@ function SheetsScreen({
       <header>
         <span className="sheets-mark">Sheets</span>
         <strong>
-          {table ? `${account} next 90 days` : "5 accounts x 5 prospects"}
+          {table ? `${account} expansion plan` : "Account prospect plan"}
         </strong>
       </header>
       <table>
@@ -515,17 +513,17 @@ function ResearchScreen({ account }: { account: string }) {
     <div className="site site-research">
       <header>
         <strong>{account}.com</strong>
-        <span>Public · last 30 days</span>
+        <span>Public sources</span>
       </header>
       <p className="site-time">Researching the account · not a sequence</p>
       <ul>
         <li>
-          <span>Status</span> Origin outage, 14 days ago. 47 minutes to fail
-          over. Postmortem still says they jumped three tools.
+          <span>Status</span> A recent origin incident required a manual
+          failover across several tools.
         </li>
         <li>
           <span>Careers</span> Staff platform JD: experience running CDN and WAF
-          across teams. Posted this month.
+          across teams.
         </li>
         <li>
           <span>Blog</span> We outgrew homegrown dashboards. No named

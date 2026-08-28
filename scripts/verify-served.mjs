@@ -85,16 +85,16 @@ if (statusOf(home.headers) !== 200) {
 }
 
 const must = [
-  "Grok Bot for Cloudflare sales",
+  "Cloudflare x SpaceXAI",
   "watercolor-pad.png",
   "brand-wordmark",
-  "/brand/cloudflare-wordmark.svg",
+  "https://cf-assets.www.cloudflare.com/",
   "Room Ops",
   "Paper",
   "Outbound",
   "Sean Middleton",
   "sean.middleton@cursor.com",
-  "A background team for every sales rep",
+  "A fleet of agents for every sales rep",
   ">You<",
 ];
 for (const needle of must) {

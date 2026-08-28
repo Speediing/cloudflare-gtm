@@ -1,3 +1,6 @@
+const CLOUDFLARE_WORDMARK =
+  "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/69RwBidpiEHCDZ9rFss24R/3c76e6eb130a8d1b875de1333edc425f/logo-cloudflare-dark.svg";
+
 export function BrandLockup({
   size = "md",
 }: {
@@ -8,7 +11,7 @@ export function BrandLockup({
     <div className={`brand-lockup brand-lockup-${size}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/cloudflare-wordmark.svg"
+        src={CLOUDFLARE_WORDMARK}
         alt="Cloudflare"
         className="brand-wordmark"
       />

@@ -86,4 +86,23 @@ if (hits.length) {
   process.exit(1);
 }
 
+const lockup = readFileSync(
+  join(ROOT, "src/components/BrandLockup.tsx"),
+  "utf8",
+);
+if (
+  !/https:\/\/cf-assets\.www\.cloudflare\.com\/.+\/logo-cloudflare-dark\.svg/.test(
+    lockup,
+  )
+) {
+  console.error("lockup does not use the official cloudflare.com wordmark");
+  process.exit(1);
+}
+
+const css = readFileSync(join(ROOT, "src/app/globals.css"), "utf8");
+if (!/--lockup-h:\s*16px/.test(css) || !/--lockup-h:\s*18px/.test(css)) {
+  console.error("lockup is missing the required 16px and 18px sizes");
+  process.exit(1);
+}
+
 console.log("prior-customer check clean");

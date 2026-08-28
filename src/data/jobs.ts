@@ -3,65 +3,65 @@ import type { Artifact, CroJob, SlideCard } from "./types";
 export const ACME_TAIL_SLIDES: SlideCard[] = [
   {
     n: 4,
-    kicker: "They said · 4 min ago",
+    kicker: "Discovery note · live",
     voice: "them",
     title: "The origin outage",
-    body: "We cannot fail traffic over without jumping the CDN, the WAF, and a runbook.",
+    body: "Origin failover still means moving between the CDN, the WAF, and a runbook.",
   },
   {
     n: 5,
     kicker: "Mapped live",
     voice: "us",
     title: "Start with CDN + WAF",
-    body: "Same team that already feels the outage. Start there this quarter.",
+    body: "Start with the platform team that already owns the outage response.",
   },
   {
     n: 6,
-    kicker: "They said · 4 min ago",
+    kicker: "Discovery note · live",
     voice: "them",
     title: "The security bar",
-    body: "Security will not let another edge control plane in without SSO and an audit trail.",
+    body: "Security needs a clear SSO path and an audit trail before rollout.",
   },
   {
     n: 7,
     kicker: "Mapped live",
     voice: "us",
     title: "SSO, then Workers",
-    body: "Named on this call. One team. Workers after they see a faster edge path.",
+    body: "Name the security path first, then run a Workers proof with one team.",
   },
 ];
 
 export const ACME_PROCUREMENT: Extract<Artifact, { kind: "redlines" }> = {
   kind: "redlines",
-  title: "Acme procurement · overnight invoices",
+  title: "Acme procurement · product questions",
   paperTitle: "Their questions",
-  from: "Jordan Hale, Acme procurement · 5:27am your time",
+  from: "Jordan Hale, Acme procurement · overnight",
   marks: [
     {
-      text: "Why the $427.51 catch-up, and will it happen again?",
-      note: "Billing-system miss on our side, 1 July–17 July. INV-0081 is the one-time correction. Gap is closed.",
+      text: "Can you confirm the SSO setup path?",
+      note: "The draft points to the current product documentation and flags the plan-specific detail for review.",
       take: true,
     },
     {
-      text: "Can the admin portal be trusted? Any more retro charges?",
-      note: "Dashboard for usage. Invoices under Billing are the billed record. Flag anything from a closed period before it is billed.",
+      text: "Where can our team review the audit trail?",
+      note: "The draft links the relevant security documentation and names the owner who can confirm access.",
       take: true,
     },
     {
-      text: "How was the $715.55 Teams invoice calculated?",
-      note: "Two mid-cycle adds, 19→20→21, not one full-year seat. Proration through 17 July 2027. Seat is $384/year.",
+      text: "Which controls are included in our current order?",
+      note: "The draft checks the order form and holds anything that needs a commercial decision.",
       take: true,
     },
     {
-      text: "Spend caps, PO invoicing, per-user limits.",
-      note: "Team-wide monthly cap is on Teams. Per-user caps and annual PO are Enterprise. Do not re-trade that from this inbox.",
+      text: "Who should join if a contract question comes up?",
+      note: "Route it to the account team. Do not guess or change terms from the inbox.",
       take: false,
     },
   ],
   reply: {
     to: "Jordan Hale, Acme procurement",
-    subject: "Acme invoices INV-0080 and INV-0081. Answers you can send today",
-    body: "Hi Jordan,\n\nINV-0081 ($427.51) is a one-time catch-up for usage 1–17 July that our billing system missed. Not new usage. Gap is closed. No further retros expected; I would flag any closed-period item before it billed.\n\nDashboard = usage. Billing invoices = what was billed. Those should now match. Send any line that does not.\n\nINV-0080 ($715.55) is two mid-cycle seat adds (19→21), not a full-year seat at $384. Renewal date does not change.\n\nTeam-wide spend cap is on Teams. Per-user caps and annual PO are Enterprise. That stays on the order form.\n\nHappy to jump on a call before these are processed.\n\nBest,",
+    subject: "Acme product and security questions",
+    body: "Hi Jordan,\n\nI pulled the current product, security, and order-form context into one reply. The SSO and audit-trail answers are linked to their source documents. I held the contract question for the account team rather than guessing.\n\nI am happy to bring the right owner into the thread if you want to review any of it live.\n\nBest,\nSean",
   },
 };
 
@@ -76,7 +76,7 @@ export const ACME_OUTBOUND: Extract<Artifact, { kind: "outbound" }> = {
     },
     {
       k: "Why now",
-      body: "Public incident 14 days ago. 47 minutes to fail over origin. Staff platform JD asks for CDN and WAF experience. The pain is current.",
+      body: "A recent origin incident and an open platform role both point to CDN and WAF work.",
     },
     {
       k: "Why them",
@@ -85,14 +85,14 @@ export const ACME_OUTBOUND: Extract<Artifact, { kind: "outbound" }> = {
   ],
   evidence: [
     {
-      source: "Status page · 14 days ago",
+      source: "Recent status update",
       finding:
-        "Origin outage, 47 minutes to fail over. Postmortem language is still 'we jumped three tools.'",
+        "The origin incident required a manual failover across several tools.",
     },
     {
       source: "Careers · Staff platform",
       finding:
-        "JD asks for 'experience running CDN and WAF across teams.' Open role, posted this month.",
+        "The open role asks for experience running CDN and WAF across teams.",
     },
     {
       source: "Engineering blog",
@@ -114,7 +114,7 @@ export const ACME_OUTBOUND: Extract<Artifact, { kind: "outbound" }> = {
   ],
   page: {
     headline: "Acme's origin outage is a stitching problem",
-    body: "The last incident and the Staff platform JD say the same thing. Start CDN + WAF in the platform team. Workers after that team has a week-3 number. Not a product tour.",
+    body: "The recent incident and the platform role point to the same problem. Start with CDN + WAF in the platform team. Add a Workers proof once the first deployment is working.",
   },
 };
 
@@ -126,9 +126,9 @@ export const JOBS: CroJob[] = [
     trigger: "A customer call starts",
     backgroundAction: "Listening to discovery + updating the open deck",
     problem:
-      "A generic deck is a pitch they have already sat through. The wow is hearing their own discovery back, then seeing the next product named for their team, while they are still on.",
+      "A generic deck repeats the same pitch. A useful deck reflects the customer's words and gives the team a clear next step before the call ends.",
     botJob:
-      "Granola is in while you are on. The last slides become their words and a product suggestion that fits this room. Not last quarter's story.",
+      "Grok Bot follows the call in Granola, updates the last slides, and maps the discussion to the Cloudflare product that fits.",
     storyboard: [
       {
         when: "Minute 8",
@@ -151,8 +151,8 @@ export const JOBS: CroJob[] = [
         visual: {
           kind: "live-transcript",
           timestamp: "14:31",
-          speaker: "Priya",
-          quote: "We stitch the CDN and the WAF every time there is an origin outage.",
+          label: "Discovery note",
+          note: "Origin failover still requires work across the CDN and WAF.",
           signals: ["Origin outage", "CDN + WAF"],
         },
       },
@@ -176,7 +176,7 @@ export const JOBS: CroJob[] = [
       },
     ],
     unlock:
-      "Hyper-personalized discovery on the slide, plus a tailored product next step, while they are still on.",
+      "Customer language on the slide, plus a product next step, while the call is still live.",
     outcome:
       "One live call becomes a customer-specific deck, before the call ends.",
     clips: ["03-slides-granola"],
@@ -276,7 +276,7 @@ export const JOBS: CroJob[] = [
               {
                 label: "Why now",
                 value:
-                  "The team already agreed to start CDN + WAF. Workers is useful in that same week-3 window, not after a product tour next quarter.",
+                  "The team already agreed to start CDN + WAF. A Workers proof belongs with that work, not in a separate product tour.",
               },
               {
                 label: "Risks already named",
@@ -286,7 +286,7 @@ export const JOBS: CroJob[] = [
               {
                 label: "Exact ask for next Tuesday",
                 value:
-                  "30 minutes. Your contact + a security co-owner. Dated SSO path. Written Workers trial scope for one team.",
+                  "Your contact and a security co-owner. A dated SSO path and a written Workers trial scope for one team.",
               },
             ],
           },
@@ -316,7 +316,7 @@ export const JOBS: CroJob[] = [
   {
     id: "legal-redlines",
     number: 2,
-    title: "Find product and internal answers fast",
+    title: "Answer customer questions without the Slack chase",
     trigger: "A customer question lands",
     backgroundAction: "Searching product knowledge + internal company context",
     problem:
@@ -325,19 +325,19 @@ export const JOBS: CroJob[] = [
       "Grok Bot watches for the question, searches product knowledge and internal company context, and drafts a sourced reply. The seller reviews instead of chasing teams.",
     storyboard: [
       {
-        when: "5:27am your time",
-        label: "Four questions land. Grok starts while you are asleep.",
+        when: "Overnight",
+        label: "A customer question lands. Grok starts while you are offline.",
         scene: "notes",
         visual: {
           kind: "procurement-email",
           sender: "Jordan · Acme procurement",
-          subject: "Questions on INV-0080 + 0081",
+          subject: "Product and security questions",
           questions: 4,
         },
       },
       {
-        when: "7:42am",
-        label: "Grok has already found and checked every answer.",
+        when: "Before your workday",
+        label: "Grok finds the source for each answer and flags what needs a person.",
         scene: "inspect",
         visual: {
           kind: "answers-found",
@@ -346,12 +346,12 @@ export const JOBS: CroJob[] = [
             { name: "Finance", answer: "Proration checked" },
             { name: "Packaging", answer: "Limits confirmed" },
           ],
-          status: "4 / 4 answered",
+          status: "Draft ready · one held",
         },
       },
       {
-        when: "7:44am",
-        label: "A sourced reply is waiting for one-click approval.",
+        when: "Ready by morning",
+        label: "A sourced reply is waiting for approval.",
         scene: "send",
         visual: {
           kind: "reply-ready",
@@ -384,13 +384,13 @@ export const JOBS: CroJob[] = [
           id: "m1",
           from: "paper",
           kind: "routine",
-          body: "New Acme procurement thread detected at 5:27am. Two invoices, four questions. Checking billing, finance, and packaging while you are offline.",
+          body: "New Acme procurement thread detected overnight. Checking product, security, and order-form context while you are offline.",
         },
         {
           id: "m2",
           from: "paper",
           kind: "text",
-          body: "Already read it overnight. Four questions. Draft is waiting. You do not need to ping billing, finance, or legal for this one. Nothing sent.",
+          body: "I read the thread and found the source for each answer. One contract question is held for the account team. Nothing has been sent.",
         },
         {
           id: "m3",
@@ -424,13 +424,13 @@ export const JOBS: CroJob[] = [
   {
     id: "attach-engine",
     number: 3,
-    title: "Pipeline generation is now easier than ever",
+    title: "Turn account signals into ready-to-send outreach",
     trigger: "A target account enters your list",
     backgroundAction: "Researching signals + building personalized outreach",
     problem:
       "Cold outbound is a generic sequence. No research, no hypothesis, no evidence, and a name from a list. Pipeline that lands starts with why this account, why now, and who would care.",
     botJob:
-      "When an account enters your target list, Grok Bot researches it, writes a 3-why, finds evidence of the pain, names who cares, then drafts LinkedIn, email, and a page. Draft only. You send.",
+      "When an account enters your target list, Grok Bot researches it, explains why Cloudflare and why now, finds the right buyer, then drafts LinkedIn, email, and a page. You decide what sends.",
     storyboard: [
       {
         when: "No meeting yet",
@@ -440,12 +440,12 @@ export const JOBS: CroJob[] = [
           kind: "account-research",
           account: "Acme",
           sources: ["Status page", "Careers", "Engineering"],
-          signal: "47-minute origin outage",
+          signal: "Recent origin outage",
         },
       },
       {
-        when: "90 seconds later",
-        label: "It turns public evidence into a sharp 3-why.",
+        when: "After research",
+        label: "It turns public evidence into a clear account brief.",
         scene: "notes",
         visual: {
           kind: "three-why",
@@ -464,7 +464,7 @@ export const JOBS: CroJob[] = [
           kind: "outreach-ready",
           person: "Priya Shah · VP Engineering",
           channels: ["LinkedIn", "Email", "Acme page"],
-          status: "3 drafts · 0 sent",
+          status: "Drafts ready · nothing sent",
         },
       },
       {
@@ -475,9 +475,9 @@ export const JOBS: CroJob[] = [
       },
     ],
     unlock:
-      "Research, a 3-why, evidence, named buyers, and sendable drafts. Nothing fires until you tap.",
+      "Research, evidence, the right buyer, and sendable drafts. Nothing sends until you approve it.",
     outcome:
-      "One account in. Research, a 3-why, named buyers, and personalized outreach out.",
+      "Add an account to the list. Grok Bot returns the research, buyer map, and personalized outreach.",
     clips: ["02-prospecting-pg"],
     demo: {
       title: "Outbound",
@@ -497,22 +497,22 @@ export const JOBS: CroJob[] = [
           id: "m1",
           from: "attach",
           kind: "routine",
-          body: "Acme entered your target-account list. No meeting yet. Researching the account, building the 3-why, and finding the people who would feel the pain. Drafts only.",
+          body: "Acme entered your target-account list. No meeting yet. Researching the account and finding the people who would feel the pain. Drafts only.",
         },
         {
           id: "m2",
           from: "attach",
           kind: "text",
-          body: "In the account. Careers, status page, engineering blog. Staff platform JD is asking for CDN and WAF. Status page still has a 47-minute origin outage. Writing the 3-why from that, not from a persona.",
+          body: "I found a recent origin incident and an open platform role that asks for CDN and WAF experience. Building the account brief from those sources, not from a generic persona.",
         },
         {
           id: "m3",
           from: "attach",
           kind: "draft",
-          draftLabel: "3-why hypothesis",
+          draftLabel: "Account hypothesis",
           artifact: {
             kind: "packet",
-            title: "Acme 3-why",
+            title: "Acme account hypothesis",
             fields: ACME_OUTBOUND.hypothesis.map((item) => ({
               label: item.k,
               value: item.body,
@@ -549,7 +549,7 @@ export const JOBS: CroJob[] = [
             title: "LinkedIn to Priya Shah",
             to: "Priya Shah",
             role: "VP Engineering, Acme",
-            body: "Priya, your status page from 14 days ago and the Staff platform JD say the same thing: on-call still stitches tools to fail over origin. 90 seconds on how CDN + WAF in the platform team would have shortened that outage. Draft only. Nothing sent.",
+            body: "Priya, your recent status update and the Staff platform role point to the same issue: on-call still moves between tools to fail over origin. I put together a short note on how the platform team could start with CDN + WAF. Draft only. Nothing sent.",
           },
         },
         {
@@ -562,7 +562,7 @@ export const JOBS: CroJob[] = [
             title: "Email to Priya Shah",
             to: "Priya Shah, VP Engineering",
             subject: "Acme's last origin outage and the Staff platform JD",
-            body: "Priya, the 47-minute origin outage and the Staff platform posting both point at stitching CDN and WAF. I put a one-page note on how Cloudflare would start in that platform team, not a product tour. Happy to walk Chris Okonkwo through it too. Nothing else in the ask. Draft only until you tap Send.",
+            body: "Priya, the recent origin incident and the Staff platform role both point at work across CDN and WAF. I put together a one-page note on how Cloudflare could start with that platform team. Happy to walk Chris Okonkwo through it too. Draft only until you tap Send.",
           },
         },
         {

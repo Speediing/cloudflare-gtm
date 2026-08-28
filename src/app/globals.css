@@ -22,6 +22,7 @@
   --shot-line: var(--line);
   --shot-radius: 3px;
   --shot-shadow: none;
+  --brand-art-filter: hue-rotate(110deg) saturate(1.18);
   --mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --imessage-blue: #007aff;
   --imessage-gray: #e9e9eb;
@@ -416,6 +417,7 @@ button:active:not(:focus-visible),
   max-height: min(72vh, 820px);
   object-fit: cover;
   object-position: center 42%;
+  filter: var(--brand-art-filter);
 }
 
 .hero-telemetry {
@@ -619,6 +621,7 @@ button:active:not(:focus-visible),
   max-height: min(42vh, 420px);
   object-fit: cover;
   object-position: 48% 58%;
+  filter: var(--brand-art-filter);
 }
 
 .orbit-break::after {
@@ -708,6 +711,7 @@ button:active:not(:focus-visible),
   height: auto;
   opacity: 0.18;
   mix-blend-mode: multiply;
+  filter: var(--brand-art-filter);
 }
 
 .background-agent {
@@ -913,7 +917,7 @@ button:active:not(:focus-visible),
     var(--surface);
 }
 
-.story-transcript-ui blockquote {
+.story-transcript-note {
   display: grid;
   gap: 0.22rem;
   min-height: 6rem;
@@ -925,7 +929,7 @@ button:active:not(:focus-visible),
   line-height: 1.42;
 }
 
-.story-transcript-ui blockquote strong {
+.story-transcript-note strong {
   color: var(--accent);
   font-size: 0.58rem;
   letter-spacing: 0.05em;
@@ -1588,6 +1592,7 @@ button:active:not(:focus-visible),
   display: block;
   width: 100%;
   height: auto;
+  filter: var(--brand-art-filter);
 }
 
 .leave-deck-top {

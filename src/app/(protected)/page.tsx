@@ -24,24 +24,26 @@ export default function HomePage() {
           <HeroTelemetry />
           <section className="hero">
             <div>
-              <p className="eyebrow">A proactive agent for every Cloudflare rep</p>
-              <h1>The agents that work while your reps sell.</h1>
+              <p className="eyebrow">Persistent agents for Cloudflare sales</p>
+              <h1>Agents work while your sellers sell.</h1>
               <p className="hero-intro">
                 Grok Bot listens to calls, watches the inbox, and researches
-                accounts in the background. Work triggers it, not another
-                prompt.
+                accounts in the background. Each agent works on its own
+                computer and starts when the work arrives.
               </p>
             </div>
           </section>
 
           <section className="usecase-framing">
-            <p className="eyebrow">Three sample use cases</p>
+            <p className="eyebrow">Three sample workflows</p>
             <h2>
-              Grok Bot gives every seller their own fleet of always-available
-              agent teammates. Anything your sellers do today can be done
-              through Grok Bot.
+              Give each seller a fleet of agents for the work around every edge
+              deal.
             </h2>
-            <p>These are three examples from millions, not the boundary.</p>
+            <p>
+              Each agent has its own computer. Your team decides what the
+              agents own and what stays with the seller.
+            </p>
           </section>
 
           <div className="metric-grid">
@@ -82,7 +84,7 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <div>
-          <p className="footer-title">Cursor for Cloudflare</p>
+          <p className="footer-title">Cloudflare x SpaceXAI</p>
           <p>Grok Bot for Cloudflare sales</p>
         </div>
         <address className="footer-contact">

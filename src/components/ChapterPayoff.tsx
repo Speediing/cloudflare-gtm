@@ -11,7 +11,7 @@ function OutboundPack({
 
   return (
     <div className="leave leave-out-phone">
-      <div className="out-phone" aria-label="Sales Outbound approval chat">
+      <div className="out-phone" aria-label="Outbound approval chat">
         <div className="out-phone-notch" aria-hidden />
         <header className="out-phone-header">
           <span className="out-phone-back" aria-hidden>
@@ -21,7 +21,7 @@ function OutboundPack({
             ✦
           </span>
           <p>
-            <strong>Sales Outbound</strong>
+            <strong>Outbound</strong>
             <small>{artifact.account} · drafts ready</small>
           </p>
           <span className="out-phone-desktop" aria-hidden>
@@ -31,7 +31,7 @@ function OutboundPack({
 
         <div className="out-phone-thread">
           <article className="out-email-card">
-            <p className="out-email-label">Draft email · 1 of 10</p>
+            <p className="out-email-label">Draft email</p>
             <p className="out-email-subject">
               Subject · {artifact.account}&apos;s last origin outage
             </p>
@@ -42,10 +42,10 @@ function OutboundPack({
                 thing: on-call still stitches CDN and WAF to fail over origin.
               </p>
               <p>
-                I put together the 90-second version for your platform team.
-                Worth fifteen minutes next week?
+                I put together a short note for your platform team. Open to a
+                quick look next week?
               </p>
-              <p>Sam</p>
+              <p>Sean</p>
             </div>
             <footer>
               <span>Send email</span>
@@ -54,16 +54,16 @@ function OutboundPack({
           </article>
 
           <p className="out-message is-you">
-            Send the top 10 emails. They look good.
+            Show me the strongest draft.
           </p>
           <p className="out-message is-bot">
-            Top 10 sending. The rest stay queued.
+            Ready for review. The rest stay queued.
           </p>
         </div>
 
         <footer className="out-phone-composer">
           <span aria-hidden>+</span>
-          <p>Message Sales Outbound</p>
+          <p>Message Outbound</p>
           <span aria-hidden>◉</span>
         </footer>
       </div>
