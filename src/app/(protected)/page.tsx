@@ -1,4 +1,5 @@
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
@@ -23,15 +24,7 @@ export default function HomePage() {
         <div className="report-hero">
           <HeroTelemetry />
           <section className="hero">
-            <div>
-              <p className="eyebrow">Persistent agents for Cloudflare sales</p>
-              <h1>Agents work while your sellers sell.</h1>
-              <p className="hero-intro">
-                Grok Bot listens to calls, watches the inbox, and researches
-                accounts in the background. Each agent works on its own
-                computer and starts when the work arrives.
-              </p>
-            </div>
+            <HeroDemo />
           </section>
 
           <section className="usecase-framing">

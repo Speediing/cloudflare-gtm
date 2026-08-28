@@ -96,6 +96,22 @@ const must = [
   "sean.middleton@cursor.com",
   "A fleet of agents for every sales rep",
   ">You<",
+  "hero-copy",
+  "hero-phone-jobs",
+  "hero-bot-demo",
+  "hero-phone-notch",
+  "hero-phone-header",
+  "hero-phone-thread",
+  "hero-phone-composer",
+  "Sales Outbound",
+  "Account Research",
+  "Call Follow-up",
+  "Deal Desk",
+  "Pipeline Health",
+  "Renewal Risk",
+  "Competitive Intel",
+  "Sales Chief of Staff",
+  "New signal detected",
 ];
 for (const needle of must) {
   if (!home.body.includes(needle)) {
