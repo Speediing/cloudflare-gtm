@@ -34,18 +34,6 @@ export type ComputerBeat = {
 const granola = { id: "granola", host: "granola.app", label: "Granola" };
 const figma = { id: "figma", host: "figma.com", label: "Figma" };
 const gmail = { id: "gmail", host: "mail.google.com", label: "Gmail" };
-const gong = { id: "gong", host: "app.gong.io", label: "Gong" };
-const sfdc = {
-  id: "sfdc",
-  host: "cloudflare.lightning.force.com",
-  label: "Salesforce",
-};
-const sheets = {
-  id: "sheets",
-  host: "docs.google.com",
-  label: "Sheets",
-};
-const slack = { id: "slack", host: "app.slack.com", label: "Slack" };
 const gdoc = { id: "gdoc", host: "docs.google.com", label: "Docs" };
 const linkedin = {
   id: "linkedin",

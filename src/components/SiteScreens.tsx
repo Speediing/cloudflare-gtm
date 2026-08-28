@@ -68,7 +68,7 @@ export function SiteScreen({
 
   switch (beat.site) {
     case "granola":
-      return <GranolaScreen account={account} />;
+      return <GranolaScreen />;
     case "figma":
       return <FigmaScreen account={account} artifact={artifact} />;
     case "gong":
@@ -121,11 +121,11 @@ export function SiteScreen({
         />
       );
     default:
-      return <GranolaScreen account={account} />;
+      return <GranolaScreen />;
   }
 }
 
-function GranolaScreen({ account: _account }: { account: string }) {
+function GranolaScreen() {
   return (
     <div className="site site-granola">
       <header>
