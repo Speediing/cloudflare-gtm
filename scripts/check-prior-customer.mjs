@@ -90,12 +90,21 @@ const lockup = readFileSync(
   join(ROOT, "src/components/BrandLockup.tsx"),
   "utf8",
 );
+if (!/\/brand\/cloudflare-wordmark\.svg/.test(lockup)) {
+  console.error("lockup does not use the vendored Cloudflare wordmark");
+  process.exit(1);
+}
+
+const wordmark = readFileSync(
+  join(ROOT, "public/brand/cloudflare-wordmark.svg"),
+  "utf8",
+);
 if (
-  !/https:\/\/cf-assets\.www\.cloudflare\.com\/.+\/logo-cloudflare-dark\.svg/.test(
-    lockup,
+  !/Official Cloudflare logo kit source: https:\/\/www\.cloudflare\.com\/logo\//.test(
+    wordmark,
   )
 ) {
-  console.error("lockup does not use the official cloudflare.com wordmark");
+  console.error("Cloudflare wordmark is missing official source provenance");
   process.exit(1);
 }
 

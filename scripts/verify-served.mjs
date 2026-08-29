@@ -88,7 +88,7 @@ const must = [
   "Cloudflare x SpaceXAI",
   "watercolor-pad.png",
   "brand-wordmark",
-  "https://cf-assets.www.cloudflare.com/",
+  "/brand/cloudflare-wordmark.svg",
   "Room Ops",
   "Paper",
   "Outbound",
@@ -116,6 +116,17 @@ const must = [
 for (const needle of must) {
   if (!home.body.includes(needle)) {
     fail(`authed home missing ${JSON.stringify(needle)}`);
+  }
+}
+
+for (const asset of [
+  "/brand/cloudflare-wordmark.svg",
+  "/brand/spacexai.svg",
+  "/brand/watercolor-pad.png",
+]) {
+  const response = splitHttp(curl(["-o", "-", `${BASE}${asset}`]));
+  if (statusOf(response.headers) !== 200) {
+    fail(`${asset} expected 200, got ${statusOf(response.headers)}`);
   }
 }
 
