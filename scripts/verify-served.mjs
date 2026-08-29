@@ -122,7 +122,11 @@ for (const needle of must) {
 for (const asset of [
   "/brand/cloudflare-wordmark.svg",
   "/brand/spacexai.svg",
+  "/brand/watercolor-attach.png",
+  "/brand/watercolor-deal.png",
+  "/brand/watercolor-orbit.png",
   "/brand/watercolor-pad.png",
+  "/brand/watercolor-room.png",
 ]) {
   const response = splitHttp(curl(["-o", "-", `${BASE}${asset}`]));
   if (statusOf(response.headers) !== 200) {

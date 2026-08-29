@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
@@ -43,6 +44,24 @@ const BANNED = [
   { re: /\bmark:\s*["']AE["']/, why: "job title on the fleet seat" },
 ];
 
+const REQUIRED_WATERCOLORS = new Set([
+  "watercolor-attach.png",
+  "watercolor-deal.png",
+  "watercolor-orbit.png",
+  "watercolor-pad.png",
+  "watercolor-room.png",
+]);
+
+const DATADOG_WATERCOLOR_HASHES = new Set([
+  "73faae52872e95f72c7c728be39fd637",
+  "07a853391b69873037888ca653649d36",
+  "4ee496d688a243fe17ceb3c73b95277e",
+  "cb3667f0bb96c72d3389404ae28ae22d",
+  "6eebe8dd14371fbdc268ea7d2742069b",
+  "a2671e4fc4e64ad2285159da5968feb4",
+  "5212bfa06f9c82d8949175320054d44e",
+]);
+
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     if (SKIP_DIRS.has(name)) continue;
@@ -86,6 +105,33 @@ if (hits.length) {
   process.exit(1);
 }
 
+const brandDir = join(ROOT, "public/brand");
+const brandFiles = readdirSync(brandDir);
+for (const name of brandFiles) {
+  if (/^dd_.*\.png$/i.test(name)) {
+    console.error(`prior Datadog image remains: public/brand/${name}`);
+    process.exit(1);
+  }
+  if (/^watercolor-.*\.png$/i.test(name) && !REQUIRED_WATERCOLORS.has(name)) {
+    console.error(`unexpected inherited watercolor remains: public/brand/${name}`);
+    process.exit(1);
+  }
+}
+
+for (const name of REQUIRED_WATERCOLORS) {
+  if (!brandFiles.includes(name)) {
+    console.error(`required Cloudflare watercolor is missing: public/brand/${name}`);
+    process.exit(1);
+  }
+  const hash = createHash("md5")
+    .update(readFileSync(join(brandDir, name)))
+    .digest("hex");
+  if (DATADOG_WATERCOLOR_HASHES.has(hash)) {
+    console.error(`Datadog watercolor hash remains: public/brand/${name}`);
+    process.exit(1);
+  }
+}
+
 const lockup = readFileSync(
   join(ROOT, "src/components/BrandLockup.tsx"),
   "utf8",
@@ -111,6 +157,29 @@ if (
 const css = readFileSync(join(ROOT, "src/app/globals.css"), "utf8");
 if (!/--lockup-h:\s*16px/.test(css) || !/--lockup-h:\s*18px/.test(css)) {
   console.error("lockup is missing the required 16px and 18px sizes");
+  process.exit(1);
+}
+if (/hue-rotate|--brand-art-filter/.test(css)) {
+  console.error("inherited hue-rotation filter remains in CSS");
+  process.exit(1);
+}
+if (!/object-position:\s*center 52%/.test(css)) {
+  console.error("desktop hero watercolor is missing object-position center 52%");
+  process.exit(1);
+}
+if (
+  !/main > \.hero-watercolor \+ \.report/.test(css) ||
+  !/margin-top:\s*clamp\(-7rem,\s*-8vw,\s*-4rem\)/.test(css)
+) {
+  console.error("paper overlap selector or desktop values are missing");
+  process.exit(1);
+}
+if (
+  !/max-height:\s*min\(48vh,\s*380px\)/.test(css) ||
+  !/object-position:\s*center 50%/.test(css) ||
+  !/margin-top:\s*-2\.5rem/.test(css)
+) {
+  console.error("mobile watercolor max-height, object-position, or overlap is missing");
   process.exit(1);
 }
 
