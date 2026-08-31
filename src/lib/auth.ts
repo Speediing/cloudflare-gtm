@@ -1,7 +1,7 @@
 export const AUTH_COOKIE = "cloudflare_gtm_session";
 
 export function sitePassword(): string {
-  return process.env.SITE_PASSWORD || "posse";
+  return process.env.SITE_PASSWORD || "agentteam";
 }
 
 function toHex(buffer: ArrayBuffer): string {
